@@ -1,41 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Web Design Resources — Valeria Martinez</title>
-		<link rel="resources" href="student-project-template/assets/css/resources.css" /> 
-        
-	</head>
-	<body>
-		<header>
-			<h1>Web Design Resources</h1>
-			<p>Student: Valeria Martinez· Course: Advanced Web Design</p>
-			<nav>
-				<a href="#frameworks">Frameworks</a>
-				·
-				<a href="#animations">Animations</a>
-				·
-				<a href="#templates">Templates</a>
-				·
-				<a href="#notes">Personal Notes</a>
-			</nav>
-		</header>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web Design Resources — Valeria Martinez</title>
+    <link rel="stylesheet" href="../assets/css/resources.css" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Web Design Resources</h1>
+            <p>Student: Valeria Martinez | Course: Advanced Web Design</p>
+        </div>
+    </header>
 
-		<main>
-		
-	<h1>Bootstrap</h1>
-
-    <p>
-I checked out some free Bootstrap templates. Some I found interesting, others were too simple or used colors I didn't like. In the following pictures the templates that I liked can be seen.
-    </p>
-
-     <img src="student-project-template/assets/images/bootstrap-template1.png" alt="Bootstrap template preview" />
+    <main class="container">
+        <!-- Bootstrap Section -->
+        <section class="resource-section">
+            <h2 class="section-title">Bootstrap Templates</h2>
+            <p class="section-description">
+                I explored various free Bootstrap templates to see what Boostrap offered and analyze if there were modern templates with nice use of typography, images, and overall web design trends. Personally, it depends on what the project is about but usually I enjoy minimalistic and classy websites so I was pleased with what I found on Boostrap.
+            </p>
             
-		</main>
+            <div class="image-gallery">
+                <div class="image-item">
+                    <img src="../assets/images/bootstrap-template1.png" alt="Bootstrap template preview" />
+                    <div class="image-description">
+                        <h3>Template #1</h3>
+                        <p>I liked this template because of its header, how it integrates with the background picture and has no buttons. I also liked the yellow button in the middle of the page, as I think it's a subtle call to action for users exploring my page.</p>
+                        <a href="https://startbootstrap.com/previews/agency" class="template-link" target="_blank">View Template</a>
+                    </div>
+                </div>
+                <div class="image-item">
+                     <img src="../assets/images/bootstrap-template2.png" alt="Bootstrap template preview 2" />
+                
+                    <div class="image-description">
+                        <h3>Template #2</h3>
+                        <p>I found this page interesting as the nav bar is on the left side of the page and not on top as it is usually seen. Also, it includes a photo and, while scrolling, the navigation bar remains fixed. The section you are currently viewing is highlighted in white, while the other sections turn gray, making it easy to see where you are on the page.</p>
+                        <a href="https://startbootstrap.com/previews/resume" class="template-link" target="_blank">View Template</a>
+                    </div>
+                </div>
+                <div class="image-item">
+                    <img src="../assets/images/bootstrap-template3.png" alt="Bootstrap template preview 3" />
+                   
+                    <div class="image-description">
+                        <h3>Template #3</h3>
+                        <p>What caught my eye from this landing page was how the images can be seen so close to the short introduction of "I'm Jenny Wilson a Professional..." etc. I think it is interesting as the photos may catch people's attention and make them wander and take a closer look.</p>
+                        <a href="https://bootstrapmade.com/demo/PhotoFolio/" class="template-link" target="_blank">View Template</a>
+                    </div>
+                </div>
+            </div>
 
-		<footer>
-			<p>© 2025 — Web Atelier · All external links belong to their respective owners.</p>
-		</footer>
-	</body>
+        </section>
+
+        <!-- CSS Frameworks Section -->
+        <section class="resource-section">
+            <h2 class="section-title">CSS Frameworks & Libraries</h2>
+            <p class="section-description">
+                Beyond Bootstrap, I've researched other CSS frameworks that offer different approaches to styling and layout. Each has its own philosophy and strengths.
+            </p>
+            
+            <ul class="resource-list">
+                <li>
+                    <strong><a href="#" target="_blank">Tailwind CSS</a></strong> - 
+                    Utility-first framework that provides low-level utility classes for building custom designs
+                </li>
+                <li>
+                    <strong><a href="#" target="_blank">Bulma</a></strong> - 
+                    Modern CSS framework based on Flexbox with clean and readable class names
+                </li>
+                <li>
+                    <strong><a href="#" target="_blank">Foundation</a></strong> - 
+                    Advanced responsive front-end framework with powerful grid system
+                </li>
+                <li>
+                    <strong><a href="#" target="_blank">Materialize</a></strong> - 
+                    CSS framework based on Material Design principles
+                </li>
+            </ul>
+        </section>
+
+        <!-- Color Palettes Section -->
+        <section class="resource-section">
+            <h2 class="section-title">Color Inspiration</h2>
+            <p class="section-description">
+                Color selection is crucial for creating the right mood and user experience. Here are some resources and palettes that inspire my design choices.
+            </p>
+            
+            <div class="image-gallery">
+                <div class="image-item">
+                    <div class="color-palette purple-gradient">
+                        Purple Gradient<br>
+                        <small>#667eea → #764ba2</small>
+                    </div>
+                    <div class="image-description">
+                        <h3>Purple Gradient</h3>
+                        <p>Modern purple gradient perfect for tech and creative projects</p>
+                    </div>
+                </div>
+                <div class="image-item">
+                    <div class="color-palette pink-gradient">
+                        Pink Gradient<br>
+                        <small>#f093fb → #f5576c</small>
+                    </div>
+                    <div class="image-description">
+                        <h3>Pink Gradient</h3>
+                        <p>Vibrant pink gradient ideal for lifestyle and fashion brands</p>
+                    </div>
+                </div>
+                <div class="image-item">
+                    <div class="color-palette blue-gradient">
+                        Blue Gradient<br>
+                        <small>#4facfe → #00f2fe</small>
+                    </div>
+                    <div class="image-description">
+                        <h3>Blue Gradient</h3>
+                        <p>Cool blue gradient suitable for corporate and tech applications</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tags">
+                <span class="tag">Color Theory</span>
+                <span class="tag">Gradients</span>
+                <span class="tag">Accessibility</span>
+                <span class="tag">Brand Colors</span>
+            </div>
+        </section>
+
+        <!-- Typography Section -->
+        <section class="resource-section">
+            <h2 class="section-title">Typography Resources</h2>
+            <p class="section-description">
+                Typography plays a fundamental role in web design, affecting readability, user experience, and brand perception.
+            </p>
+            
+            <ul class="resource-list">
+                <li>
+                    <strong><a href="https://fonts.google.com" target="_blank">Google Fonts</a></strong> - 
+                    Free web fonts that are easy to implement and load quickly
+                </li>
+                <li>
+                    <strong><a href="https://fonts.adobe.com" target="_blank">Adobe Fonts</a></strong> - 
+                    Premium font library with high-quality typefaces for professional projects
+                </li>
+                <li>
+                    <strong><a href="https://www.fontpair.co" target="_blank">Font Pair</a></strong> - 
+                    Tool for discovering beautiful font combinations
+                </li>
+                <li>
+                    <strong><a href="https://www.typewolf.com" target="_blank">Typewolf</a></strong> - 
+                    Typography inspiration and font recommendations
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 — Web Atelier · All external links belong to their respective owners.</p>
+        </div>
+    </footer>
+</body>
 </html>
