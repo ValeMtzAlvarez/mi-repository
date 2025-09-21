@@ -70,7 +70,7 @@ main {
 .section-description {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
-    color: #666;
+    color: #000000;
 }
 
 /* Image Gallery */
@@ -111,7 +111,7 @@ main {
 }
 
 .image-description p {
-    color: #666;
+    color: #000000;
     font-size: 0.9rem;
     line-height: 1.4;
     margin-bottom: 1rem;
@@ -136,90 +136,9 @@ main {
     text-decoration: none;
 }
 
-/* Placeholder Images */
-.placeholder-img {
-    background: linear-gradient(135deg, #e3e8ff 0%, #c7d2fe 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #667eea;
-    font-weight: bold;
-    text-align: center;
-    height: 200px;
-}
-
-/* Color Palettes */
-.color-palette {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    height: 200px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
-
-.purple-gradient {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.pink-gradient {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-}
-
-.blue-gradient {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-}
-
-/* Resource Lists */
-.resource-list {
-    list-style: none;
-    margin-top: 1rem;
-}
-
-.resource-list li {
-    background: #f8f9ff;
-    margin-bottom: 0.5rem;
-    padding: 1rem;
-    border-radius: 5px;
-    border-left: 4px solid #667eea;
-    transition: background-color 0.3s ease;
-}
-
-.resource-list li:hover {
-    background-color: #e8ebff;
-}
-
-.resource-list a {
-    color: #667eea;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.resource-list a:hover {
-    text-decoration: underline;
-}
-
-/* Tags */
-.tags {
-    margin-top: 1rem;
-}
-
-.tag {
-    display: inline-block;
-    background: #667eea;
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
 /* Footer */
 footer {
-    background: #333;
+    background: linear-gradient(135deg, #ea6687 0%, #7d244e 100%);
     color: white;
     text-align: center;
     padding: 2rem 0;
