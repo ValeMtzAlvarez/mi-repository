@@ -196,3 +196,9 @@ footer p {
     min-width: 250px;
   }
 }
+
+/* Forzar tamaño máximo en imágenes individuales */
+.image-item {
+  max-width: 600px !important;
+  margin: 0 auto;
+}
