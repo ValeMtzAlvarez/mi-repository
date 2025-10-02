@@ -184,10 +184,10 @@ footer p {
   }
 }
 
-/* Al final de tu archivo CSS, añade esto */
+/* When I only have one image */
 .image-gallery.single-item {
   display: block; /* Cambia de grid a block */
-  max-width: 400px; /* Limita el ancho */
+  max-width: 380px; /* Limita el ancho */
 }
 
 .image-gallery.single-item .image-item {
