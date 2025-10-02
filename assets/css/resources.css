@@ -119,12 +119,6 @@ ul {
   margin-bottom: 1rem;
 }
 
-/* Para galerías con una sola imagen */
-.image-gallery.single-item {
-  max-width: 400px; /* o el ancho que prefieras */
-  margin-left: 0; /* Alinea a la izquierda */
-}
-
 /* Template Links */
 .template-link {
   display: inline-block;
@@ -188,4 +182,14 @@ footer p {
   .resource-section {
     padding: 1rem;
   }
+}
+
+/* Al final de tu archivo CSS, añade esto */
+.image-gallery.single-item {
+  display: block; /* Cambia de grid a block */
+  max-width: 400px; /* Limita el ancho */
+}
+
+.image-gallery.single-item .image-item {
+  margin-bottom: 0; /* Opcional: elimina margen inferior */
 }
