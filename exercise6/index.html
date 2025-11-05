@@ -4,15 +4,202 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parallax Section</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        overflow-x: hidden;
+        height: 100%;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .content-section {
+        padding: 150px 20px;
+        text-align: center;
+        background: #ffffff;
+        position: relative;
+        z-index: 2;
+        min-height: 100vh;
+      }
+
+      .content-section:nth-child(even) {
+        background: #f8f9fa;
+      }
+
+      .parallax-wrapper {
+        height: 600px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .parallax-bg {
+        position: absolute;
+        top: -100px;
+        left: 0;
+        width: 100%;
+        height: calc(100% + 200px);
+        background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background-position: center;
+        background-size: cover;
+        will-change: transform;
+        z-index: 0;
+      }
+
+      .parallax-bg.bg2 {
+        background-image: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+
+      .parallax-bg.bg3 {
+        background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+
+      .parallax-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .parallax-content {
+        position: relative;
+        z-index: 1;
+        color: white;
+        text-align: center;
+        padding: 40px;
+      }
+
+      .parallax-content h2 {
+        text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.7);
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .parallax-content p {
+        text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
+        font-size: 1.5rem;
+      }
+
+      .scroll-indicator {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 10px;
+        font-size: 14px;
+        z-index: 1000;
+        font-family: monospace;
+      }
+    </style>
   </head>
   <body>
-    <div
-      class="parallax-section d-flex align-items-center justify-content-center text-white"
-    >
+    <div class="scroll-indicator">
+      Scroll: <span id="scrollAmount">0</span>px
+    </div>
+
+    <div class="content-section">
       <div class="container">
-        <h2 class="display-3 fw-bold">Parallax Content</h2>
+        <h1 class="display-4 mb-4">⬇️ Scroll Down Now ⬇️</h1>
+        <p class="lead">Watch the backgrounds move slower than your scroll!</p>
+        <p>The scroll counter in the top-right shows you're scrolling</p>
       </div>
     </div>
+
+    <div class="parallax-wrapper">
+      <div class="parallax-bg" data-speed="0.5"></div>
+      <div class="parallax-content">
+        <h2>Parallax Effect #1</h2>
+        <p>Background moves at 50% scroll speed</p>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <div class="container">
+        <h2>Normal Content Section</h2>
+        <p class="lead">This scrolls normally</p>
+        <p>Keep scrolling to see more parallax sections...</p>
+      </div>
+    </div>
+
+    <div class="parallax-wrapper">
+      <div class="parallax-bg bg2" data-speed="0.3"></div>
+      <div class="parallax-content">
+        <h2>Parallax Effect #2</h2>
+        <p>This one moves even slower (30% speed)</p>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <div class="container">
+        <h2>Almost There...</h2>
+        <p class="lead">One more parallax section below</p>
+      </div>
+    </div>
+
+    <div class="parallax-wrapper">
+      <div class="parallax-bg bg3" data-speed="0.6"></div>
+      <div class="parallax-content">
+        <h2>Parallax Effect #3</h2>
+        <p>This moves at 60% speed - faster than the others</p>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <div class="container">
+        <h2>🎉 End of Demo 🎉</h2>
+        <p class="lead">Scroll back up to see the effect in reverse!</p>
+        <p>Each parallax background moved at a different speed</p>
+      </div>
+    </div>
+
+    <script>
+      const scrollIndicator = document.getElementById("scrollAmount");
+
+      function updateParallax() {
+        const scrolled = window.pageYOffset;
+        scrollIndicator.textContent = Math.round(scrolled);
+
+        document.querySelectorAll(".parallax-bg").forEach((bg) => {
+          const wrapper = bg.closest(".parallax-wrapper");
+          const speed = parseFloat(bg.dataset.speed);
+          const rect = wrapper.getBoundingClientRect();
+          const wrapperTop = wrapper.offsetTop;
+
+          // Only apply when section is near viewport
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const yPos = -(scrolled - wrapperTop) * speed;
+            bg.style.transform = `translate3d(0, ${yPos}px, 0)`;
+          }
+        });
+      }
+
+      let rafId = null;
+      window.addEventListener("scroll", () => {
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => {
+          updateParallax();
+          rafId = null;
+        });
+      });
+
+      updateParallax();
+    </script>
   </body>
 </html>

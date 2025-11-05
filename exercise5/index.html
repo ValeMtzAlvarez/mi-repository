@@ -4,16 +4,75 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Neumorphic Elements</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: #e0e5ec;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .neu-button {
+        background: #e0e5ec;
+        border: none;
+        border-radius: var(--bs-border-radius-lg);
+        color: #333;
+        padding: 15px 30px;
+        font-weight: 500;
+        /* Dual shadows for raised effect */
+        box-shadow: 8px 8px 15px rgba(163, 177, 198, 0.6),
+          -8px -8px 15px rgba(255, 255, 255, 0.9);
+        transition: all 0.2s ease;
+      }
+
+      .neu-button:hover {
+        background: #e0e5ec;
+        color: #333;
+      }
+
+      .neu-button:active {
+        /* Inset for pressed effect */
+        box-shadow: inset 8px 8px 15px rgba(163, 177, 198, 0.6),
+          inset -8px -8px 15px rgba(255, 255, 255, 0.9);
+      }
+
+      .neu-input {
+        background: #e0e5ec;
+        border: none;
+        border-radius: var(--bs-border-radius-lg);
+        padding: 15px 20px;
+        color: #333;
+        /* Inset shadow for input field */
+        box-shadow: inset 6px 6px 12px rgba(163, 177, 198, 0.5),
+          inset -6px -6px 12px rgba(255, 255, 255, 0.8);
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .neu-input:focus {
+        background: #e0e5ec;
+        color: #333;
+        outline: none;
+        box-shadow: inset 6px 6px 12px rgba(163, 177, 198, 0.6),
+          inset -6px -6px 12px rgba(255, 255, 255, 0.9);
+      }
+
+      .neu-input::placeholder {
+        color: #a3b1c6;
+      }
+    </style>
   </head>
   <body>
-    <div class="container" style="text-align: center; margin-top: 100px">
+    <div class="container" style="text-align: center">
       <button class="btn neu-button btn-lg">
         Click Me - Neumorphic Button
       </button>
-
       <br /><br />
-
       <input
         type="text"
         class="form-control neu-input"
