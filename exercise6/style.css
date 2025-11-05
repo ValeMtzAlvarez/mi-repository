@@ -1,0 +1,7 @@
+.parallax-section {
+  background-image: url("...");
+  min-height: 500px;
+  background-attachment: fixed; /* KEY! */
+  background-position: center;
+  background-size: cover;
+}
