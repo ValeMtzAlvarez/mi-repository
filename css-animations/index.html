@@ -3,36 +3,357 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Breathing Circle</title>
+    <title>CSS Transforms & Animations</title>
     <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
+      * {
         margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 
-      .circle {
-        width: 100px;
-        height: 100px;
-        border: 3px solid #333;
-        border-radius: 50%;
-        animation: breathe 4s ease-in-out infinite;
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+        padding: 40px 20px;
       }
 
-      @keyframes breathe {
-        0%,
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .card h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .card p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .demo-box {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
+        border-radius: 8px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .code-block {
+        background: #1e1e1e;
+        color: #00ff00;
+        padding: 15px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-family: "Courier New", monospace;
+        overflow-x: auto;
+        margin-top: 15px;
+        line-height: 1.4;
+      }
+
+      /* ROTATE */
+      @keyframes rotateAnimation {
+        0% {
+          transform: rotate(0deg);
+        }
         100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .rotate-box {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 8px;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        animation: rotateAnimation 3s linear infinite;
+      }
+
+      /* PULSE */
+      @keyframes pulse {
+        0% {
           transform: scale(1);
         }
         50% {
           transform: scale(1.3);
         }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .pulse-box {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        border-radius: 8px;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      /* BOUNCE */
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        25% {
+          transform: translateY(-30px);
+        }
+        75% {
+          transform: translateY(-15px);
+        }
+      }
+
+      .bounce-box {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        border-radius: 8px;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        animation: bounce 2s ease-in-out infinite;
+      }
+
+      /* SLIDE */
+      @keyframes slideIn {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      .slide-box {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        border-radius: 8px;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        animation: slideIn 2s ease-in-out infinite;
+      }
+
+      /* SKEW */
+      @keyframes skewAnimation {
+        0% {
+          transform: skewX(0deg) skewY(0deg);
+        }
+        50% {
+          transform: skewX(20deg) skewY(10deg);
+        }
+        100% {
+          transform: skewX(0deg) skewY(0deg);
+        }
+      }
+
+      .skew-box {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        border-radius: 8px;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+        font-weight: bold;
+        animation: skewAnimation 3s ease-in-out infinite;
+      }
+
+      /* COMBINED */
+      @keyframes combined {
+        0% {
+          transform: rotate(0deg) scale(1) translateY(0);
+        }
+        25% {
+          transform: rotate(90deg) scale(1.15) translateY(-10px);
+        }
+        50% {
+          transform: rotate(180deg) scale(1.2) translateY(0);
+        }
+        75% {
+          transform: rotate(270deg) scale(1.15) translateY(-10px);
+        }
+        100% {
+          transform: rotate(360deg) scale(1) translateY(0);
+        }
+      }
+
+      .combined-box {
+        background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%);
+        border-radius: 8px;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        animation: combined 4s ease-in-out infinite;
+      }
+
+      /* 3D ROTATION */
+      @keyframes rotate3d {
+        0% {
+          transform: rotateX(0deg) rotateY(0deg);
+        }
+        50% {
+          transform: rotateX(180deg) rotateY(180deg);
+        }
+        100% {
+          transform: rotateX(360deg) rotateY(360deg);
+        }
+      }
+
+      .perspective-container {
+        perspective: 1000px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .rotation-3d-box {
+        background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+        border-radius: 8px;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        transform-style: preserve-3d;
+        animation: rotate3d 4s linear infinite;
       }
     </style>
   </head>
   <body>
-    <div class="circle"></div>
+    <div class="container">
+      <div class="grid">
+        <!-- 1. ROTATE -->
+        <div class="card">
+          <h2>1. Rotate</h2>
+          <p>Spin element around its center.</p>
+          <div class="demo-box">
+            <div class="rotate-box">Rotate</div>
+          </div>
+          <div class="code-block">transform: rotate(180deg);</div>
+        </div>
+
+        <!-- 2. PULSE -->
+        <div class="card">
+          <h2>2. Pulse</h2>
+          <p>Scale element up and down continuously.</p>
+          <div class="demo-box">
+            <div class="pulse-box">Pulse</div>
+          </div>
+          <div class="code-block">
+            @keyframes pulse { 0% { transform: scale(1); } 50% { transform:
+            scale(1.3); } 100% { transform: scale(1); } }
+          </div>
+        </div>
+
+        <!-- 3. BOUNCE -->
+        <div class="card">
+          <h2>3. Bounce</h2>
+          <p>Element bounces up and down.</p>
+          <div class="demo-box">
+            <div class="bounce-box">Bounce</div>
+          </div>
+          <div class="code-block">
+            @keyframes bounce { 0%, 100% { translateY(0); } 25% {
+            translateY(-30px); } 75% { translateY(-15px); } }
+          </div>
+        </div>
+
+        <!-- 4. SLIDE IN -->
+        <div class="card">
+          <h2>4. Slide In</h2>
+          <p>Element slides in from the left.</p>
+          <div class="demo-box">
+            <div class="slide-box">Slide</div>
+          </div>
+          <div class="code-block">
+            @keyframes slideIn { from { transform: translateX(-100%); } to {
+            transform: translateX(0); } }
+          </div>
+        </div>
+
+        <!-- 5. SKEW -->
+        <div class="card">
+          <h2>5. Skew</h2>
+          <p>Distort element along axes.</p>
+          <div class="demo-box">
+            <div class="skew-box">Skew</div>
+          </div>
+          <div class="code-block">
+            @keyframes skewAnimation { 0% { transform: skewX(0deg) skewY(0deg);
+            } 50% { transform: skewX(20deg) skewY(10deg); } 100% { transform:
+            skewX(0deg) skewY(0deg); } }
+          </div>
+        </div>
+
+        <!-- 6. COMBINED -->
+        <div class="card">
+          <h2>6. Combined</h2>
+          <p>Multiple transforms together.</p>
+          <div class="demo-box">
+            <div class="combined-box">Multi</div>
+          </div>
+          <div class="code-block">
+            transform: rotate(90deg) scale(1.2) translateY(-10px);
+          </div>
+        </div>
+
+        <!-- 7. 3D ROTATION -->
+        <div class="card">
+          <h2>7. 3D Rotation</h2>
+          <p>Rotate in 3D space.</p>
+          <div class="demo-box perspective-container">
+            <div class="rotation-3d-box">3D</div>
+          </div>
+          <div class="code-block">
+            transform: rotateX(45deg) rotateY(45deg); transform-style:
+            preserve-3d;
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
